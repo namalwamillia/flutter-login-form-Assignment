@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:login_page/sign_up.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignUp extends StatelessWidget {
+  const SignUp({super.key});
 
-  @override
-  State<LoginPage> createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,15 +27,15 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               // Logo at the top
               Image.asset(
-                'assets/logo.png',
+                'assets/logo.png', // Path to your logo
                 height: 80,
                 width: 80,
               ),
               const SizedBox(height: 20),
 
-              // "Login" Title Text
+              // "Sign Up" Title Text
               const Text(
-                'Login',
+                'Sign Up',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -49,7 +43,16 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 20),
 
-              // Email TextFormField
+              // Full Name Field
+              TextFormField(
+                decoration: const InputDecoration(
+                  labelText: 'Full Name',
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              const SizedBox(height: 16.0),
+
+              // Email Field
               TextFormField(
                 decoration: const InputDecoration(
                   labelText: 'Email',
@@ -59,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 16.0),
 
-              // Password TextFormField
+              // Password Field
               TextFormField(
                 obscureText: true,
                 decoration: const InputDecoration(
@@ -68,42 +71,49 @@ class _LoginPageState extends State<LoginPage> {
                   prefixIcon: Icon(Icons.lock),
                 ),
               ),
+              const SizedBox(height: 16.0),
+
+              // Confirm Password Field
+              TextFormField(
+                obscureText: true,
+                decoration: const InputDecoration(
+                  labelText: 'Confirm Password',
+                  border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.lock_outline),
+                ),
+              ),
               const SizedBox(height: 20),
 
-              // Login Button with yellow color
+              // Sign Up Button with green color
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.yellow,
                   minimumSize: const Size.fromHeight(50),
                 ),
                 onPressed: () {
-                  // Handle login action
+                  // Handle sign-up action
                 },
                 child: const Text(
-                  'Login',
-                  style: TextStyle(color: Colors.black),
+                  'Sign Up',
+                  style: TextStyle(color: Colors.white),
                 ),
               ),
               const SizedBox(height: 20),
 
-              // "Don't have an account?" and Register link
+              // "Already have an account?" and Login link
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    "Don't have an account?",
+                    "Already have an account?",
                     style: TextStyle(color: Colors.black),
                   ),
                   TextButton(
                     onPressed: () {
-                      // Navigate to SignUpPage
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const SignUp()),
-                      );
+                      Navigator.pop(context); 
                     },
                     child: const Text(
-                      'Register',
+                      'Login',
                       style: TextStyle(color: Colors.green),
                     ),
                   ),
@@ -115,8 +125,4 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-}
-
-class SignUpPage {
-  const SignUpPage();
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_page/sign_up.dart';
+import 'sign_up.dart'; // Import the SignUpPage
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -115,8 +115,4 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-}
-
-class SignUpPage {
-  const SignUpPage();
 }
